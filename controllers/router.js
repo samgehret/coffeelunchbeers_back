@@ -2,8 +2,8 @@ const users = require('./users')
 module.exports = function (app) {
     // Render home page
     // Routes for account creation
-  app.get('/users/new', users.createUser)
-  app.post('/users', users.create)
+  app.get('/users/list', users.listUsers)
+  app.post('/users/new', users.createUser)
 //   app.get('/users/:id/verify', users.showVerify)
 //   app.post('/users/:id/verify', users.verify)
 //   app.post('/users/:id/resend', users.resend)

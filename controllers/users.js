@@ -1,11 +1,8 @@
+const fetch = require('node-fetch')
 const oktaClient = require('../lib/oktaClient')
+const axios = require('axios')
 
 exports.createUser = function (req, res) {
-  console.log('hello world')
-  res.send('Hello World')
-}
-
-exports.create = function (req, res) {
   console.log('gettinng here')
   const newUser = {
     profile: {
@@ -16,7 +13,7 @@ exports.create = function (req, res) {
     },
     credentials: {
       password: {
-        value: 'P@ssW0rd!!123'
+        value: req.body.password
       }
     }
   }
@@ -30,4 +27,11 @@ exports.create = function (req, res) {
           res.send(err)
           console.log(err)
         })
+}
+
+exports.listUsers = function (req, res) {
+  console.log('gettinng hooo')
+  axios.get('https://dev-320743.oktapreview.com/api/v1/users',
+    {headers: {authorization: 'SSWS 002ml4zCt6VpTP_akzJ9jdOBWRoUw5TDG_OyjOSlMR'}})
+    .then((users) => res.json(users.data))
 }
