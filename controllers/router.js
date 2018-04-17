@@ -23,7 +23,7 @@ function authenticationRequired (req, res, next) {
   return oktaJwtVerifier.verifyAccessToken(accessToken)
       .then((jwt) => {
         req.jwt = jwt
-        console.log('access token')
+        // console.log('access token')
         console.log(jwt)
         next()
       })
@@ -44,9 +44,9 @@ function authenticationRequired (req, res, next) {
 module.exports = function (app) {
     // Render home page
     // Routes for account creation
-  app.get('/users/list', authenticationRequired, users.listUsers)
+  app.get('/users/list', users.listUsers)
   app.post('/users/new', users.createUser)
-//   app.get('/users/:id/verify', users.showVerify)
+  app.get('/users/:id', authenticationRequired, users.getUser)
 //   app.post('/users/:id/verify', users.verify)
 //   app.post('/users/:id/resend', users.resend)
 //   app.get('/users/:id', users.showUser)
