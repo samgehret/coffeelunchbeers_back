@@ -80,3 +80,9 @@ exports.newAdmin = function (req, res) {
     {headers: {authorization: 'SSWS 002ml4zCt6VpTP_akzJ9jdOBWRoUw5TDG_OyjOSlMR'}})
     .catch((err) => console.log(err.message))
 }
+
+exports.deleteAdmin = function (req, res) {
+  axios.delete(`https://dev-320743.oktapreview.com/api/v1/groups/00geqqpub31y8X5p00h7/users/${req.params.id}`,
+  {headers: {authorization: 'SSWS 002ml4zCt6VpTP_akzJ9jdOBWRoUw5TDG_OyjOSlMR'}})
+  .then(console.log('deleted'))
+}

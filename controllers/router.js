@@ -48,10 +48,10 @@ module.exports = function (app) {
   app.get('/users/list', users.listUsers)
   app.post('/users/new', users.createUser)
   app.get('/users/admin', users.listAdmins)
-  
   app.get('/users/:id', authenticationRequired, users.getUser)
   app.get('/users/:id/groups', authenticationRequired, users.getUserGroups)
   app.delete('/users/:id/delete', users.deleteUser)
+  app.delete('/users/admin/remove/:id', users.deleteAdmin)
   
 
 //   app.get('/users/:id', users.showUser)
