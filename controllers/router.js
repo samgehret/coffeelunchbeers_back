@@ -5,7 +5,7 @@ const OktaJwtVerifier = require('@okta/jwt-verifier')
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: 'https://dev-320743.oktapreview.com/oauth2/auseqn9hpdtwm1aeO0h7',
   assertClaims: {
-    aud: 'http://localhost:3001/users/list',
+    aud: 'http://localhost:3001/users/list'
     // new: true
   }
 })
@@ -44,12 +44,16 @@ function authenticationRequired (req, res, next) {
 module.exports = function (app) {
     // Render home page
     // Routes for account creation
+  app.put('/users/admin/new/:id', users.newAdmin)
   app.get('/users/list', users.listUsers)
   app.post('/users/new', users.createUser)
+  app.get('/users/admin', users.listAdmins)
+  
   app.get('/users/:id', authenticationRequired, users.getUser)
   app.get('/users/:id/groups', authenticationRequired, users.getUserGroups)
   app.delete('/users/:id/delete', users.deleteUser)
-//   app.post('/users/:id/resend', users.resend)
+  
+
 //   app.get('/users/:id', users.showUser)
 //   app.get('/users/login', users.showLogin)
 //   app.post('/users/login', users.login)
