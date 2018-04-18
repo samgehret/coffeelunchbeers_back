@@ -68,6 +68,9 @@ exports.deleteUser = function (req, res) {
   axios.delete(`https://dev-320743.oktapreview.com/api/v1/groups/00ger25s82SYY4FkQ0h7/users/${req.params.id}`,
   {headers: {authorization: 'SSWS 002ml4zCt6VpTP_akzJ9jdOBWRoUw5TDG_OyjOSlMR'}})
   .then(console.log('deleted'))
+  axios.delete(`https://dev-320743.oktapreview.com/api/v1/groups/00geqqpub31y8X5p00h7/users/${req.params.id}`,
+  {headers: {authorization: 'SSWS 002ml4zCt6VpTP_akzJ9jdOBWRoUw5TDG_OyjOSlMR'}})
+  .then(console.log('deleted'))
 }
 
 exports.newAdmin = function (req, res) {
