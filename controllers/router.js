@@ -52,8 +52,6 @@ module.exports = function (app) {
   app.get('/users/:id/groups', authenticationRequired, users.getUserGroups)
   app.delete('/users/:id/delete', users.deleteUser)
   app.delete('/users/admin/remove/:id', users.deleteAdmin)
-  
-
 //   app.get('/users/:id', users.showUser)
 //   app.get('/users/login', users.showLogin)
 //   app.post('/users/login', users.login)

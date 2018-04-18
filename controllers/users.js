@@ -1,4 +1,3 @@
-const fetch = require('node-fetch')
 const oktaClient = require('../lib/oktaClient')
 const axios = require('axios')
 
